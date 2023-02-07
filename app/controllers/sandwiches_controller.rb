@@ -6,8 +6,7 @@ class SandwichesController < ApplicationController
   end
 
   def create
-    sandwich = Sandwich.create(sandwich_params)
-    puts "IN CREATE ROUTE" , sandwich_params, sandwich
+    sandwich = Sandwich.create!(sandwich_params)
     if sandwich.valid?
       render json: sandwich, status: :created
     else 
