@@ -1,5 +1,5 @@
 class Sandwich < ApplicationRecord
-
+  has_many :orders
 
   # validations
   validates :name, presence: true, uniqueness: true
