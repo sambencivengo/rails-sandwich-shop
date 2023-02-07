@@ -1,2 +1,0 @@
-class Cheese < ApplicationRecord
-end
