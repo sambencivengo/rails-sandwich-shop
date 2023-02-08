@@ -2,6 +2,9 @@ class SandwichesController < ApplicationController
  
   def index
     sandwiches = Sandwich.all  
+
+
+    puts Ingredients::
     render json: sandwiches
   end
 
