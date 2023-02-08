@@ -1,13 +1,15 @@
+
 class SandwichesController < ApplicationController
+
  
   def index
     sandwiches = Sandwich.all  
-
+    puts Constants::Meats[:category]
+    puts Constants::Cheeses
     render json: sandwiches.to_json(:include => :ingredients)
   end
 
   def create
-
     sandwich = Sandwich.create!(sandwich_params)
 
     if sandwich.valid?
