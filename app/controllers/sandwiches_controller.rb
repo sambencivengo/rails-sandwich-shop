@@ -1,12 +1,14 @@
 class SandwichesController < ApplicationController
  
   def index
-    sandwiches = Sandwich.all 
+    sandwiches = Sandwich.all  
     render json: sandwiches
   end
 
   def create
+
     sandwich = Sandwich.create!(sandwich_params)
+
     if sandwich.valid?
       render json: sandwich, status: :created
     else 
