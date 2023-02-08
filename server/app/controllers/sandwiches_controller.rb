@@ -3,9 +3,7 @@ class SandwichesController < ApplicationController
   def index
     sandwiches = Sandwich.all  
 
-
-    puts Ingredients::
-    render json: sandwiches
+    render json: sandwiches.to_json(:include => :ingredients)
   end
 
   def create
