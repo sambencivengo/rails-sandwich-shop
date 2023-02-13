@@ -1,3 +1,3 @@
 class Order < ApplicationRecord
-  belongs_to :sandwich
+  has_and_belongs_to_many :sandwich
 end
