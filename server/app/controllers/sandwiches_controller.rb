@@ -12,7 +12,14 @@ class SandwichesController < ApplicationController
       |ingredientId| ingredient = Ingredient.find(ingredientId)
       # if an ingredient doesn't exist, we will 404 and prevent sandwich creation
     }
+
+    total_sandwich_price = (ingredients.map do |ingredient|
+      ingredient.price
+    end).sum
+
     sandwich = Sandwich.create!(sandwich_params)
+    sandwich.price = total_sandwich_price
+
     if !sandwich.valid?
       render json: {
         errors: sandwich.errors.full_messages
@@ -22,6 +29,7 @@ class SandwichesController < ApplicationController
     ingredients.each {
       |ingredient| SandwichIngredient.create!({sandwich_id: sandwich[:id], ingredient_id: ingredient[:id] })
     }
+    
 
     render json: sandwich.to_json(:include => :ingredients) 
 
