@@ -22,9 +22,8 @@ class SandwichesController < ApplicationController
     ingredients.each {
       |ingredient| SandwichIngredient.create!({sandwich_id: sandwich[:id], ingredient_id: ingredient[:id] })
     }
-    
-    res = sandwich.to_json
-    render json: res
+
+    render json: sandwich.to_json(:include => :ingredients) 
 
   end
 
