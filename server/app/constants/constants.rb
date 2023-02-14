@@ -12,6 +12,17 @@ module Constants
     ].freeze, 
   } 
 
+  Condiments = {
+    Category: 'condiments',
+    Options: [
+      OLIVE_OIL = 'olive oil', 
+      VINEGAR = 'vinegar', 
+      YELLOW_MUSTARD = 'yellow mustard', 
+      DIJON_MUSTARD = 'dijon mustard',
+      MAYONNAISE = 'mayonnaise'
+    ].freeze,
+  }
+
   Cheeses = {
     Category: "cheeses",
     Options: [

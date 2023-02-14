@@ -17,3 +17,11 @@ Constants::Meats[:Options].each {
 Constants::Breads[:Options].each {
   |option|  Ingredient.create({name: option, category: Constants::Breads[:Category], price: rand(1..3) * 100 })
 }
+
+Constants::Condiments[:Options].each {
+  |option|  Ingredient.create({name: option, category: Constants::Condiments[:Category], price: rand(1..3) * 100 })
+}
+
+Constants::Vegetables[:Options].each {
+  |option|  Ingredient.create({name: option, category: Constants::Vegetables[:Category], price: rand(1..3) * 100 })
+}
