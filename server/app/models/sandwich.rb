@@ -1,5 +1,4 @@
 class Sandwich < ApplicationRecord
-  belongs_to :order
   has_many :sandwich_ingredients
   has_many :ingredients, through: :sandwich_ingredients
 

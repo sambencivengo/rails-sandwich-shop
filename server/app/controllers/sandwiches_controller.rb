@@ -4,7 +4,13 @@ class SandwichesController < ApplicationController
  
   def index
     sandwiches = Sandwich.all  
-    render json: sandwiches.to_json(:include => :ingredients)
+
+
+    params[:withIngredients] == 'true' ?
+      response = sandwiches.to_json(:include => :ingredients) :
+      response = sandwiches
+    
+      render json: response
   end
 
   def create
@@ -19,6 +25,7 @@ class SandwichesController < ApplicationController
 
     sandwich = Sandwich.create!(sandwich_params)
     sandwich.price = total_sandwich_price
+    
 
     if !sandwich.valid?
       render json: {
@@ -26,6 +33,7 @@ class SandwichesController < ApplicationController
       }, status: :unprocessable_entity 
     end 
     
+    sandwich.save
     ingredients.each {
       |ingredient| SandwichIngredient.create!({sandwich_id: sandwich[:id], ingredient_id: ingredient[:id] })
     }
