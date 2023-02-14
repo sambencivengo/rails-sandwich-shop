@@ -1,7 +1,7 @@
-class IngredientsController < ApplicationController
+class Api::IngredientsController < ApplicationController
    
   def index
-    unsorted_ingredients = Ingredient.all  
+    @unsorted_ingredients = Ingredient.all  
 
     sorted_ingredients = {
       meats: {
@@ -26,7 +26,7 @@ class IngredientsController < ApplicationController
       }
     }
 
-    unsorted_ingredients.each do |ingredient|
+    @unsorted_ingredients.each do |ingredient|
       category = ingredient[:category]
 
       case category

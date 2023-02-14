@@ -1,14 +1,13 @@
 
-class SandwichesController < ApplicationController
+class Api::SandwichesController < ApplicationController
 
- 
   def index
-    sandwiches = Sandwich.all  
+    @sandwiches = Sandwich.all  
 
 
     params[:withIngredients] == 'true' ?
-      response = sandwiches.to_json(:include => :ingredients) :
-      response = sandwiches
+      response = @sandwiches.to_json(:include => :ingredients) :
+      response = @sandwiches
     
       render json: response
   end
@@ -23,23 +22,23 @@ class SandwichesController < ApplicationController
       ingredient.price
     end).sum
 
-    sandwich = Sandwich.create!(sandwich_params)
-    sandwich.price = total_sandwich_price
+    @sandwich = Sandwich.create!(sandwich_params)
+    @sandwich.price = total_sandwich_price
     
 
-    if !sandwich.valid?
+    if !@sandwich.valid?
       render json: {
         errors: sandwich.errors.full_messages
       }, status: :unprocessable_entity 
     end 
     
-    sandwich.save
+    @sandwich.save
     ingredients.each {
-      |ingredient| SandwichIngredient.create!({sandwich_id: sandwich[:id], ingredient_id: ingredient[:id] })
+      |ingredient| SandwichIngredient.create!({sandwich_id: @sandwich[:id], ingredient_id: ingredient[:id] })
     }
     
 
-    render json: sandwich.to_json(:include => :ingredients) 
+    render json: @sandwich.to_json(:include => :ingredients) 
 
   end
 
