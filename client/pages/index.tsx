@@ -8,22 +8,22 @@ import { colors } from '@/theme/theme';
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
-	React.useEffect(() => {
-		const getSandwiches = async () => {
-			const res = await fetch(`${env.BASE_API_URL}/sandwiches`, {
-				headers: {
-					'Access-Control-Allow-Origin': '*',
-				},
-			});
-			if (!res.ok) {
-				console.log(`Unable to get sandwiches: ${await res.text()}`);
-				return;
-			}
-			const data = await res.json();
-			console.log(data);
-		};
-		getSandwiches();
-	}, []);
+	// React.useEffect(() => {
+	// 	const getSandwiches = async () => {
+	// 		const res = await fetch(`${env.BASE_API_URL}/sandwiches`, {
+	// 			headers: {
+	// 				'Access-Control-Allow-Origin': '*',
+	// 			},
+	// 		});
+	// 		if (!res.ok) {
+	// 			console.log(`Unable to get sandwiches: ${await res.text()}`);
+	// 			return;
+	// 		}
+	// 		const data = await res.json();
+	// 		console.log(data);
+	// 	};
+	// 	getSandwiches();
+	// }, []);
 	return (
 		<>
 			<Head>
