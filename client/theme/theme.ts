@@ -1,10 +1,8 @@
 import { extendTheme, StyleFunctionProps, ThemeConfig } from '@chakra-ui/react';
-import { inputAnatomy } from '@chakra-ui/anatomy';
 import { mode } from '@chakra-ui/theme-tools';
 
 const config: ThemeConfig = {
-	initialColorMode: 'dark',
-	useSystemColorMode: true,
+	initialColorMode: 'light',
 };
 
 export const colors = {
@@ -12,7 +10,8 @@ export const colors = {
 	orange: '#FC7300',
 	darkOrange: '#7a4300',
 	white: '#FFFFFF',
-	darkPurple: '#3d405b',
+	greyPurple: '#3d405b',
+	darkPurple: '#301934',
 	whitish: '#f7ede2',
 	black: '#000000',
 };
@@ -51,7 +50,7 @@ export const theme = extendTheme({
 		global: (props: StyleFunctionProps) => ({
 			body: {
 				color: mode(colors.white, colors.black)(props),
-				backgroundColor: mode(colors.white, colors.darkPurple)(props),
+				backgroundColor: mode(colors.white, colors.greyPurple)(props),
 			},
 			// '::-webkit-scrollbar': { display: 'none' },
 			'#hubspot-messages-iframe-container': {
