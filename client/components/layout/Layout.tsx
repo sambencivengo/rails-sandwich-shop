@@ -7,8 +7,6 @@ interface LayoutProps {
 export const Layout = ({ children }: LayoutProps) => (
 	<>
 		<Header />
-		<Center>
-			<main>{children}</main>
-		</Center>
+		<main>{children}</main>
 	</>
 );

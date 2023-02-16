@@ -2,7 +2,16 @@ import Head from 'next/head';
 import { Inter } from '@next/font/google';
 import React from 'react';
 import { env } from '../env';
-import { Box, Button, Heading } from '@chakra-ui/react';
+import {
+	Box,
+	Image,
+	Button,
+	Heading,
+	useBreakpointValue,
+	Flex,
+	Center,
+	VStack,
+} from '@chakra-ui/react';
 import { colors } from '@/theme/theme';
 import { useSandwich } from '@/components/SandwichProvider';
 
@@ -10,7 +19,8 @@ const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
 	const { ingredients } = useSandwich();
-	console.log(ingredients);
+	const isMobile = useBreakpointValue({ base: true, sm: true, md: false });
+
 	return (
 		<>
 			<Head>
@@ -25,13 +35,49 @@ export default function Home() {
 				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<Box>
-				<Heading color={colors.orange} size={'lg'}>
-					{"Sammy's Sandwiches"}
-				</Heading>
-				<Button variant={'cta'}>Order</Button>
-				<Button variant={'solid'}>Order</Button>
-			</Box>
+			<Flex
+				direction={['column', 'column', 'row']}
+				justifyContent={'space-between'}
+			>
+				<Box>
+					<Image
+						fit="cover"
+						w={isMobile ? '100vw' : '50vw'}
+						alt="sandwich"
+						src="2sandiwches.jpg"
+					/>
+					<Heading
+						color={colors.orange}
+						size={['md', 'xl', 'xl']}
+						position={'absolute'}
+						left="20px"
+						top="60px"
+					>
+						{"Sammy's Sandwiches"}
+					</Heading>
+					<Heading
+						color={colors.orange}
+						size={'sm'}
+						position={'absolute'}
+						left="20px"
+						top="100px"
+					>
+						{'The best sandwiches on the web'}
+					</Heading>
+				</Box>
+				<Center px={20} w="50%">
+					<VStack
+						p={5}
+						border={`2px solid ${colors.whitish}`}
+						rounded="md"
+					>
+						<Heading size={['lg']} color={colors.black}>
+							{"Click to begin ordering a Sammy's Sandwich"}
+						</Heading>
+						<Button size={'lg'}>Order</Button>
+					</VStack>
+				</Center>
+			</Flex>
 		</>
 	);
 }
