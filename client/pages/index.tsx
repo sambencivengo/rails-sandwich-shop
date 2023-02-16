@@ -4,26 +4,13 @@ import React from 'react';
 import { env } from '../env';
 import { Box, Button, Heading } from '@chakra-ui/react';
 import { colors } from '@/theme/theme';
+import { useSandwich } from '@/components/SandwichProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
-	// React.useEffect(() => {
-	// 	const getSandwiches = async () => {
-	// 		const res = await fetch(`${env.BASE_API_URL}/sandwiches`, {
-	// 			headers: {
-	// 				'Access-Control-Allow-Origin': '*',
-	// 			},
-	// 		});
-	// 		if (!res.ok) {
-	// 			console.log(`Unable to get sandwiches: ${await res.text()}`);
-	// 			return;
-	// 		}
-	// 		const data = await res.json();
-	// 		console.log(data);
-	// 	};
-	// 	getSandwiches();
-	// }, []);
+	const { ingredients } = useSandwich();
+	console.log(ingredients);
 	return (
 		<>
 			<Head>
@@ -44,7 +31,6 @@ export default function Home() {
 				</Heading>
 				<Button variant={'cta'}>Order</Button>
 				<Button variant={'solid'}>Order</Button>
-				<Button variant={'outline'}>Order</Button>
 			</Box>
 		</>
 	);

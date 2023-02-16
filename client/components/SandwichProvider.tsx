@@ -6,29 +6,12 @@ interface SandwichProviderProps {
 	children: React.ReactNode;
 }
 
-interface IngredientsWithCategoryAndOptions {
-	breads: {
-		category: 'breads';
-		options: Ingredient[];
-	};
-	meats: {
-		category: 'cheeses';
-		options: Ingredient[];
-	};
-	vegetables: {
-		category: 'vegetables';
-		options: Ingredient[];
-	};
-	condiments: {
-		category: 'condiments';
-		options: Ingredient[];
-	};
-	cheeses: {
-		category: 'cheeses';
-		options: Ingredient[];
-	};
-}
-
+type IngredientCategory =
+	| 'breads'
+	| 'cheeses'
+	| 'condiments'
+	| 'meats'
+	| 'vegetables';
 interface Ingredient {
 	category: string;
 	id: number;
@@ -36,10 +19,19 @@ interface Ingredient {
 	price: number;
 }
 
+interface IngredientGroup {
+	category: IngredientCategory;
+	options: Ingredient[];
+}
+
+type IngredientsByCategory = {
+	[key in IngredientCategory]: IngredientGroup;
+};
+
 interface SandwichContextData {
 	isLoading: boolean;
 	getIngredients: () => Promise<void>;
-	ingredients: IngredientsWithCategoryAndOptions | null;
+	ingredients: IngredientsByCategory | null;
 }
 
 const SandwichContext = React.createContext<SandwichContextData>({
@@ -53,7 +45,7 @@ export const SandwichProvider: React.FC<SandwichProviderProps> = ({
 }) => {
 	const [isLoading, setIsLoading] = React.useState(true);
 	const [ingredients, setIngredients] =
-		React.useState<IngredientsWithCategoryAndOptions | null>(null);
+		React.useState<IngredientsByCategory | null>(null);
 
 	const getIngredients = async () => {
 		try {
