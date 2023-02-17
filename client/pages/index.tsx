@@ -14,6 +14,7 @@ import {
 } from '@chakra-ui/react';
 import { colors } from '@/theme/theme';
 import { useSandwich } from '@/components/SandwichProvider';
+import { SplashPageFooter } from '@/components/SplashPageFooter';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -58,6 +59,7 @@ export default function Home() {
 					</VStack>
 				</Center>
 			</Flex>
+			<SplashPageFooter />
 		</>
 	);
 }
