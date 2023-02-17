@@ -7,6 +7,7 @@ import {
 	useColorMode,
 	Center,
 	useColorModeValue,
+	Heading,
 } from '@chakra-ui/react';
 
 import React from 'react';
@@ -27,7 +28,12 @@ export const Header: React.FC<HeaderProps> = ({}) => {
 				`2px solid ${colors.darkPurple}`
 			)}
 		>
-			<Box></Box>
+			<Center>
+				<Heading ml={5} size="lg" color={colors.orange}>
+					{"Sammy's Sandwiches"}
+				</Heading>
+			</Center>
+
 			<Center pr={2}>
 				<IconButton
 					variant={useColorModeValue('cta', 'solid')}

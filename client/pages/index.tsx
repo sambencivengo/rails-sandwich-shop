@@ -39,38 +39,18 @@ export default function Home() {
 				direction={['column', 'column', 'row']}
 				justifyContent={'space-between'}
 			>
-				<Box>
+				<Center p={5} w={isMobile ? '100vw' : '50vw'}>
 					<Image
+						rounded={'md'}
+						h={'80%'}
 						fit="cover"
-						w={isMobile ? '100vw' : '50vw'}
 						alt="sandwich"
 						src="2sandiwches.jpg"
+						boxShadow="dark-lg"
 					/>
-					<Heading
-						color={colors.orange}
-						size={['md', 'xl', 'xl']}
-						position={'absolute'}
-						left="20px"
-						top="60px"
-					>
-						{"Sammy's Sandwiches"}
-					</Heading>
-					<Heading
-						color={colors.orange}
-						size={'sm'}
-						position={'absolute'}
-						left="20px"
-						top="100px"
-					>
-						{'The best sandwiches on the web'}
-					</Heading>
-				</Box>
-				<Center px={20} w="50%">
-					<VStack
-						p={5}
-						border={`2px solid ${colors.whitish}`}
-						rounded="md"
-					>
+				</Center>
+				<Center p={5} w={isMobile ? '100vw' : '50vw'}>
+					<VStack p={5} rounded="md">
 						<Heading size={['lg']} color={colors.black}>
 							{"Click to begin ordering a Sammy's Sandwich"}
 						</Heading>
