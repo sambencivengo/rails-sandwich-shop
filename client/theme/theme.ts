@@ -12,6 +12,7 @@ export const colors = {
 	white: '#FFFFFF',
 	greyPurple: '#3d405b',
 	darkPurple: '#301934',
+	lightPurple: '#CBC3E3',
 	whitish: '#f7ede2',
 	black: '#000000',
 };
@@ -34,7 +35,7 @@ export const theme = extendTheme({
 					bg: colors.purple,
 					color: colors.white,
 					_hover: {
-						bg: colors.darkPurple,
+						bg: colors.lightPurple,
 						color: colors.white,
 					},
 				},

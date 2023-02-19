@@ -24,9 +24,13 @@ export const Header: React.FC<HeaderProps> = ({}) => {
 			justifyContent={'space-between'}
 			h={'50px'}
 			borderBottom={useColorModeValue(
-				`2px solid ${colors.whitish}`,
-				`2px solid ${colors.darkPurple}`
+				`1px solid ${colors.whitish}`,
+				`1px solid ${colors.darkPurple}`
 			)}
+			position="fixed"
+			w={'100%'}
+			bgColor={colors.white}
+			zIndex={10}
 		>
 			<Center>
 				<Heading ml={5} size="lg" color={colors.orange}>

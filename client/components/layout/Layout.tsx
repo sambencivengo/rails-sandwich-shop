@@ -1,4 +1,4 @@
-import { Center } from '@chakra-ui/react';
+import { Box, Center, Container } from '@chakra-ui/react';
 import { Header } from './Header';
 
 interface LayoutProps {
@@ -7,6 +7,9 @@ interface LayoutProps {
 export const Layout = ({ children }: LayoutProps) => (
 	<>
 		<Header />
-		<main>{children}</main>
+
+		<Box>
+			<main>{children}</main>
+		</Box>
 	</>
 );
