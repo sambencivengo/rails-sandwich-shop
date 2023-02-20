@@ -50,7 +50,11 @@ export default function Home() {
 				</Center>
 				<Center p={5} w={isMobile ? '100vw' : '50vw'}>
 					<VStack p={5} rounded="md">
-						<Heading size={['lg']} color={colors.black}>
+						<Heading
+							textAlign="center"
+							size={['lg']}
+							color={colors.black}
+						>
 							{"Click to begin ordering a Sammy's Sandwich"}
 						</Heading>
 						<Button size={'lg'}>Order</Button>
