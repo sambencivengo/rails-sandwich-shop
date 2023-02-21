@@ -53,7 +53,7 @@ export const theme = extendTheme({
 				color: mode(colors.white, colors.black)(props),
 				backgroundColor: mode(colors.white, colors.greyPurple)(props),
 			},
-			// '::-webkit-scrollbar': { display: 'none' },
+			'::-webkit-scrollbar': { display: 'none' },
 			'#hubspot-messages-iframe-container': {
 				colorScheme: 'auto',
 			},
