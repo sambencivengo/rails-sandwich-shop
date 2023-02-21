@@ -12,7 +12,7 @@ export const Layout = ({ children }: LayoutProps) => {
 		<>
 			<Header />
 
-			<Box pt={isMobile ? '75px' : '0px'}>
+			<Box px={20} pt={'70px'}>
 				<main>{children}</main>
 			</Box>
 			<SplashPageFooter />
