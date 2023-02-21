@@ -1,5 +1,6 @@
 import { Box, useBreakpointValue } from '@chakra-ui/react';
 import { Header } from './Header';
+import { SplashPageFooter } from './SplashPageFooter';
 
 interface LayoutProps {
 	children: React.ReactNode;
@@ -11,9 +12,10 @@ export const Layout = ({ children }: LayoutProps) => {
 		<>
 			<Header />
 
-			<Box pt={isMobile ? '50px' : '10px'}>
+			<Box pt={isMobile ? '75px' : '0px'}>
 				<main>{children}</main>
 			</Box>
+			<SplashPageFooter />
 		</>
 	);
 };

@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import { Inter } from '@next/font/google';
 import React from 'react';
 import {
 	Image,
@@ -11,13 +10,11 @@ import {
 	VStack,
 } from '@chakra-ui/react';
 import { colors } from '@/theme/theme';
-import { useSandwich } from '@/components/SandwichProvider';
-import { SplashPageFooter } from '@/components/SplashPageFooter';
-
-const inter = Inter({ subsets: ['latin'] });
+import { SplashPageFooter } from '@/components/layout/SplashPageFooter';
+import { useRouter } from 'next/router';
 
 export default function Home() {
-	const { ingredients } = useSandwich();
+	const router = useRouter();
 	const isMobile = useBreakpointValue({ base: true, sm: true, md: false });
 
 	return (
@@ -35,10 +32,11 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Flex
+				h={isMobile ? 'auto' : '90vh'}
 				direction={['column', 'column', 'row']}
-				justifyContent={'space-between'}
+				justifyContent={isMobile ? 'space-between' : ''}
 			>
-				<Center p={5} w={isMobile ? '100vw' : '50vw'}>
+				<Center px={5} w={isMobile ? '100vw' : '50vw'}>
 					<Image
 						rounded={'md'}
 						h={'80%'}
@@ -48,7 +46,7 @@ export default function Home() {
 						boxShadow="dark-lg"
 					/>
 				</Center>
-				<Center p={5} w={isMobile ? '100vw' : '50vw'}>
+				<Center px={5} w={isMobile ? '100vw' : '50vw'}>
 					<VStack p={5} rounded="md">
 						<Heading
 							textAlign="center"
@@ -57,11 +55,15 @@ export default function Home() {
 						>
 							{"Click to begin ordering a Sammy's Sandwich"}
 						</Heading>
-						<Button size={'lg'}>Order</Button>
+						<Button
+							onClick={() => router.push('/order')}
+							size={'lg'}
+						>
+							Order
+						</Button>
 					</VStack>
 				</Center>
 			</Flex>
-			<SplashPageFooter />
 		</>
 	);
 }

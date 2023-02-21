@@ -9,6 +9,7 @@ import {
 	useColorModeValue,
 	Heading,
 } from '@chakra-ui/react';
+import Link from 'next/link';
 
 import React from 'react';
 
@@ -33,9 +34,16 @@ export const Header: React.FC<HeaderProps> = ({}) => {
 			zIndex={10}
 		>
 			<Center>
-				<Heading ml={5} size="lg" color={colors.orange}>
-					{"Sammy's Sandwiches"}
-				</Heading>
+				<Link href={'/'}>
+					<Heading
+						textDecoration={'underline'}
+						ml={5}
+						size="lg"
+						color={colors.orange}
+					>
+						{"Sammy's Sandwiches"}
+					</Heading>
+				</Link>
 			</Center>
 
 			<Center pr={2}>
