@@ -1,14 +1,28 @@
+import { useSandwich } from '@/components/SandwichProvider';
 import { colors } from '@/theme/theme';
-import { Box, Button, Center, Image, Heading } from '@chakra-ui/react';
+import { Box, Divider, Flex, Heading, Wrap, WrapItem } from '@chakra-ui/react';
 import React from 'react';
 
 interface orderProps {}
 
 export const Order: React.FC<orderProps> = ({}) => {
+	const { ingredients } = useSandwich();
+	console.log(ingredients);
 	return (
-		<Box color={colors.black} h={'90vh'}>
-			kjasdk;jansdla ;lka mdasldmn asd;lkm
-		</Box>
+		<Flex
+			align={'center'}
+			justifyContent={'space-around'}
+			direction={['column', 'column', 'row']}
+			color={colors.black}
+			h="90vh"
+			gap={10}
+		>
+			<Box bgColor={colors.whitish} h={'full'} width={'100%'}></Box>
+			<Box p={5} bgColor={colors.whitish} h={'full'} width={'100%'}>
+				<Heading>Order</Heading>
+				<Box border={`2px solid ${colors.black}`} />
+			</Box>
+		</Flex>
 	);
 };
 
