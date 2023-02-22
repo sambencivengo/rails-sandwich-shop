@@ -10,7 +10,7 @@ export const Layout = ({ children }: LayoutProps) => {
 		<>
 			<Header />
 
-			<Box px={20} pb={20} pt={'70px'}>
+			<Box pb={20} pt={'70px'}>
 				<main>{children}</main>
 			</Box>
 			<SplashPageFooter />

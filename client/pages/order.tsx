@@ -1,13 +1,12 @@
 import { useSandwich } from '@/components/SandwichProvider';
 import { colors } from '@/theme/theme';
-import { Box, Divider, Flex, Heading, Wrap, WrapItem } from '@chakra-ui/react';
+import { Box, Flex, Heading } from '@chakra-ui/react';
 import React from 'react';
 
 interface orderProps {}
 
 export const Order: React.FC<orderProps> = ({}) => {
 	const { ingredients } = useSandwich();
-	console.log(ingredients);
 	return (
 		<Flex
 			align={'center'}

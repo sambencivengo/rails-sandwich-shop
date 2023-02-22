@@ -11,7 +11,7 @@ export const SplashPageFooter: React.FC<SplashPageFooterProps> = ({}) => {
 		<SimpleGrid
 			p={10}
 			bgColor={colors.greyPurple}
-			h="300px"
+			minH="300px"
 			minChildWidth="200px"
 			spacing="40px"
 		>
