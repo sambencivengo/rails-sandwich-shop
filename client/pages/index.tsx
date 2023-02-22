@@ -10,7 +10,6 @@ import {
 	VStack,
 } from '@chakra-ui/react';
 import { colors } from '@/theme/theme';
-import { SplashPageFooter } from '@/components/layout/SplashPageFooter';
 import { useRouter } from 'next/router';
 
 export default function Home() {
@@ -32,7 +31,6 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Flex
-				h={isMobile ? 'auto' : '90vh'}
 				direction={['column', 'column', 'row']}
 				justifyContent={isMobile ? 'space-between' : ''}
 			>
