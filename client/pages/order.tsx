@@ -3,12 +3,14 @@ import { colors } from '@/theme/theme';
 import {
 	Box,
 	Center,
+	Checkbox,
 	Flex,
 	FormControl,
 	FormLabel,
 	Heading,
 	Select,
 	Spinner,
+	Wrap,
 	Text,
 	useBreakpointValue,
 } from '@chakra-ui/react';
@@ -46,43 +48,72 @@ export const Order: React.FC<orderProps> = ({}) => {
 						<Form>
 							<FormControl>
 								<FormLabel>Bread</FormLabel>
-								<Select>
-									<option>Testing</option>
-									<option>Testing</option>
-									<option>Testing</option>
-								</Select>
+								<Wrap>
+									{ingredients.breads.options.map((bread) => (
+										<Checkbox key={bread.id}>
+											{bread.name} $
+											{(bread.price / 100).toFixed(2)}
+										</Checkbox>
+									))}
+								</Wrap>
 							</FormControl>
+
 							<FormControl>
 								<FormLabel>Meats</FormLabel>
-								<Select>
-									<option>Testing</option>
-									<option>Testing</option>
-									<option>Testing</option>
-								</Select>
+								<Wrap>
+									{ingredients.meats.options.map((meat) => (
+										<Checkbox key={meat.id}>
+											{meat.name} $
+											{(meat.price / 100).toFixed(2)}
+										</Checkbox>
+									))}
+								</Wrap>
 							</FormControl>
+
 							<FormControl>
 								<FormLabel>Cheeses</FormLabel>
-								<Select>
-									<option>Testing</option>
-									<option>Testing</option>
-									<option>Testing</option>
-								</Select>
+								<Wrap>
+									{ingredients.cheeses.options.map(
+										(cheese) => (
+											<Checkbox key={cheese.id}>
+												{cheese.name} $
+												{(cheese.price / 100).toFixed(
+													2
+												)}
+											</Checkbox>
+										)
+									)}
+								</Wrap>
 							</FormControl>
+
 							<FormControl>
 								<FormLabel>Vegetables</FormLabel>
-								<Select>
-									<option>Testing</option>
-									<option>Testing</option>
-									<option>Testing</option>
-								</Select>
+								<Wrap>
+									{ingredients.vegetables.options.map(
+										(veg) => (
+											<Checkbox key={veg.id}>
+												{veg.name} $
+												{(veg.price / 100).toFixed(2)}
+											</Checkbox>
+										)
+									)}
+								</Wrap>
 							</FormControl>
+
 							<FormControl>
 								<FormLabel>Condiments</FormLabel>
-								<Select>
-									<option>Testing</option>
-									<option>Testing</option>
-									<option>Testing</option>
-								</Select>
+								<Wrap>
+									{ingredients.condiments.options.map(
+										(condiment) => (
+											<Checkbox key={condiment.id}>
+												{condiment.name} $
+												{(
+													condiment.price / 100
+												).toFixed(2)}
+											</Checkbox>
+										)
+									)}
+								</Wrap>
 							</FormControl>
 						</Form>
 					) : (
